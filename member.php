@@ -13,9 +13,9 @@
  * @package           Member
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Plugin Boilerplate
+ * Plugin Name:       Member
  * Plugin URI:        http://example.com/member-uri/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Site member management tool: Resgister staff members.
  * Version:           1.0.0
  * Author:            Your Name or Your Company
  * Author URI:        http://example.com/
@@ -30,6 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+require_once 'autoloader.php';
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-member-activator.php

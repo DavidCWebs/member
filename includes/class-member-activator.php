@@ -1,5 +1,5 @@
 <?php
-
+//namespace Member\Includes\Member_Activator;
 /**
  * Fired during plugin activation
  *

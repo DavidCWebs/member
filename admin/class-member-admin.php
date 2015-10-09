@@ -100,4 +100,22 @@ class Member_Admin {
 
 	}
 
+	/**
+	 * Set custom templates for this plugin's content
+	 *
+	 * @param  [type] $page_template [description]
+	 * @return [type]                [description]
+	 */
+	public function staff_registration_page_template( $page_template ) {
+
+		if ( is_page( 'staff-registration' ) ) {
+
+			$page_template = plugin_dir_path( dirname( __FILE__ ) ) . '/templates/staff-registration.php';
+
+		}
+
+		return $page_template;
+
+	}
+
 }

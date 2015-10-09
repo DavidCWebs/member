@@ -155,6 +155,11 @@ class Member {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		// Filter template loader for custom templates
+		$this->loader->add_filter( 'template_include', $plugin_admin, 'staff_registration_page_template' );
+
+		//add_action('wp_ajax_register_new_user', 'userform_process_facade');
+
 	}
 
 	/**
