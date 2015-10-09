@@ -150,15 +150,15 @@ class Member {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Member_Admin( $this->get_member(), $this->get_version() );
+		$plugin_admin		= new Member_Admin( $this->get_member(), $this->get_version() );
+		$form_processor	= new Member\Includes\Register();
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'wp_ajax_register_new_user', $form_processor, 'userform_process_facade');
 		// Filter template loader for custom templates
 		$this->loader->add_filter( 'template_include', $plugin_admin, 'staff_registration_page_template' );
-
-		//add_action('wp_ajax_register_new_user', 'userform_process_facade');
 
 	}
 

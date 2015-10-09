@@ -18,19 +18,12 @@
   <div class="col-md-6">
     <p>Set up new staff members using this form.</p>
     <p>When you create a new staff member, their login details and instructions will be automatically emailed to them.</p>
+    <div id="result-message" class="well"></div>
   </div>
   <div class="col-md-6">
     <?php
     $register = new Member\Includes\Register();
     $register->userform_process_facade ( 1, $user_role = 'subscriber' );
     ?>
-  </div>
-</div>
-<div class="row topspace">
-  <div class="col-md-6">
-    <div id="result-message" class="well"></div>
-  </div>
-  <div class="col-md-6">
-    <div id="next-steps" class="well"></div>
   </div>
 </div>

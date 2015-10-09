@@ -63,7 +63,7 @@ class View_Form {
 			?>
 			<div class="radio">
 				<label for="radios-<?= $i; ?>">
-					<input type="radio" name="role" id="radios-<?= $i; ?>" value="<?= $role['role']; ?>" checked="checked">
+					<input type="radio" name="role" id="cw_user_role" value="<?= $role['role']; ?>" checked="checked">
 					<?= $role['display']; ?>
 				</label>
 			</div>

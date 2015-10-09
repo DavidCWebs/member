@@ -208,7 +208,7 @@ class Register {
 	function user_creation_success_message( $user_role, $new_user_details, $cw_ajax, $coordinator_ID ){
 
 		// Build a success message
-		// -----------------------
+		// -------------------------------------------------------------------------
 		$user_created =
 		"You've just created a new $user_role. Their details are:
 		<ul class='user-list'>
@@ -219,22 +219,23 @@ class Register {
 		</ul>
 		You can create more {$user_role}s using the above form if you like.";
 
-		$next_steps = $this->next_steps_message ( $user_role, $coordinator_ID );
+		//$next_steps = $this->next_steps_message ( $user_role, $coordinator_ID );
 
 		// Success Return for Ajax
-		// -----------------------
+		// -------------------------------------------------------------------------
 		if ( true == $cw_ajax ) {
 
 			$response               = array(); // this will be a JSON array
 			$response['status']     = 'success';
 			$response['message']    = $user_created;
-			$response['nextSteps']  = $next_steps;
+			//$response['nextSteps']  = $next_steps;
 
 			return wp_send_json( $response ); // sends $response as a JSON object
 
 		} else {
+
 			// Success Return for PHP
-			// -----------------------
+			// -----------------------------------------------------------------------
 			return $user_created;
 
 		}
@@ -257,7 +258,7 @@ class Register {
 		$user_creation_failure = "$user_role user creation failed.";
 
 		// Failure return for Ajax
-		// -----------------------
+		// -------------------------------------------------------------------------
 		if ( true == $cw_ajax ) {
 
 			$response = array(); // this will be a JSON array
@@ -267,9 +268,9 @@ class Register {
 			return wp_send_json( $response ); // sends $response as a JSON object
 
 		} else {
-			// Failure return for PHP
-			// ----------------------
 
+			// Failure return for PHP
+			// -----------------------------------------------------------------------
 			return $user_creation_failure;
 
 		}
@@ -289,7 +290,7 @@ class Register {
 	function user_reg_validation_fail( $errors, $cw_ajax ) {
 
 		// Build a common error message
-		// ----------------------------
+		// -------------------------------------------------------------------------
 		$error_message =
 		'<p>Sorry - we can\'t process your form because:</p>
 		<ul class="error-list">';
@@ -304,16 +305,16 @@ class Register {
 
 		if ( true == $cw_ajax ) {
 			// Error message for Ajax
-			// -----------------------
+			// -----------------------------------------------------------------------
 			$response = array(); // this will be a JSON array
 			$response['status']       = 'error';
 			$response['message']      = $error_message;
 			wp_send_json( $response ); // sends $response as a JSON object
 
 		} else {
-			// Error message for PHP
-			// ---------------------
 
+			// Error message for PHP
+			// -----------------------------------------------------------------------
 			return $error_message;
 
 		}

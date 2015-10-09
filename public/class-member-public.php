@@ -61,18 +61,6 @@ class Member_Public {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Member_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Member_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->member, plugin_dir_url( __FILE__ ) . 'css/member-public.css', array(), $this->version, 'all' );
 
 	}
@@ -84,19 +72,23 @@ class Member_Public {
 	 */
 	public function enqueue_scripts() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Member_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Member_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+		//wp_enqueue_script( $this->member, plugin_dir_url( __FILE__ ) . 'js/member-public.js', array( 'jquery' ), $this->version, false );
+		if (is_page('staff-registration') ) {
 
-		wp_enqueue_script( $this->member, plugin_dir_url( __FILE__ ) . 'js/member-public.js', array( 'jquery' ), $this->version, false );
+      wp_register_script('carawebs_user_reg_script', plugin_dir_url( __FILE__ ) . 'js/registration.js', array('jquery'), null, false);
+
+      wp_enqueue_script('carawebs_user_reg_script');
+
+      $current_user = wp_get_current_user();            // gets the current user object
+      $user_id = $current_user->ID;
+
+      wp_localize_script( 'carawebs_user_reg_script', 'carawebsRegVars', array(
+        'carawebsAjaxURL' => admin_url( 'admin-ajax.php' ),
+        'carawebsCoordinatorID' => $user_id, // This passes the user ID of the originating user (with the custom role 'coordinator')
+        )
+      );
+
+    }
 
 	}
 

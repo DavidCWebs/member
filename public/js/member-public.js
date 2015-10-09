@@ -1,4 +1,4 @@
-(function( $ ) {
+( function( $ ) {
 	'use strict';
 
 	/**
@@ -29,4 +29,4 @@
 	 * be doing this, we should try to minimize doing that in our own work.
 	 */
 
-})( jQuery );
+} )( jQuery );
